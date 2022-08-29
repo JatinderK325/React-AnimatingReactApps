@@ -5,6 +5,11 @@ import Modal from "./components/Modal/Modal";
 import Backdrop from "./components/Backdrop/Backdrop";
 import List from "./components/List/List";
 
+const animationTiming = {
+  enter: 400,
+  exit: 1000
+};
+
 class App extends Component {
   state = {
     modalIsOpen: false,
@@ -28,7 +33,7 @@ class App extends Component {
           Toggle
         </button>
         <br />
-        <Transition in={this.state.showBlock} timeout={1000} mountOnEnter unmountOnExit>
+        <Transition in={this.state.showBlock} timeout={animationTiming} mountOnEnter unmountOnExit>
           {/* state => entering, entered, exiting, exited */}
           {state => (
             <div
@@ -46,6 +51,7 @@ class App extends Component {
         {/* Or {this.state.modalIsOpen ? <Modal show={this.state.modalIsOpen} closed={this.closeModal} /> : null} */}
         <Transition
           in={this.state.modalIsOpen}
+          // mseconds
           timeout={300}
           mountOnEnter
           unmountOnExit >
