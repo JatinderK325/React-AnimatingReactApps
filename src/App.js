@@ -33,7 +33,17 @@ class App extends Component {
           Toggle
         </button>
         <br />
-        <Transition in={this.state.showBlock} timeout={animationTiming} mountOnEnter unmountOnExit>
+        <Transition in={this.state.showBlock}
+          timeout={animationTiming}
+          mountOnEnter
+          unmountOnExit
+          onEnter={() => console.log('onEnter')}
+          onEntering={() => console.log('onEntering')}
+          onEntered={() => console.log('onEntered')}
+          onExit={() => console.log('onExit')}
+          onExiting={() => console.log('onExiting')}
+          onExited={() => console.log('onExited')}
+        >
           {/* state => entering, entered, exiting, exited */}
           {state => (
             <div
@@ -54,7 +64,8 @@ class App extends Component {
           // mseconds
           timeout={300}
           mountOnEnter
-          unmountOnExit >
+          unmountOnExit
+        >
           {state => (
             <Modal show={state} closed={this.closeModal} />
           )}
